@@ -1,0 +1,65 @@
+<!-- This XML file does not appear to have any style information associated 
+	with it. The document tree is shown below. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="node">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="mappinglist">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="alternative" maxOccurs="unbounded"
+								minOccurs="0">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute type="xs:string" name="name" use="optional" />
+											<xs:attribute type="xs:string" name="mapsTo"
+												use="optional" />
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="childrennodes">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="node" maxOccurs="unbounded"
+								minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="alternative" maxOccurs="unbounded"
+											minOccurs="0">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:string" name="name"
+															use="optional" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="xmlFile" minOccurs="0">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute type="xs:string" name="name" />
+														<xs:attribute type="xs:string" name="nodeName" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute type="xs:string" name="name" use="optional" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute type="xs:string" name="name" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
